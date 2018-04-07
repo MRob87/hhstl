@@ -61,7 +61,7 @@ const data = [
   createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Bobby Bill', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Mike Robinson', "123 Fake Street. O'fallon, MO USA", 30, 3),
+  createPatient('Kristen Robinson', "123 Fake Street. O'fallon, MO USA", 30, 3),
   createPatient('Brandon Hunter', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
