@@ -1,4 +1,4 @@
-const apiEndpoint = "http://localhost:5000"
+const apiEndpoint = "http://" + window.location.hostname + ":5000"
 var HelloService = {};
 
 HelloService.getGreeting = function() {
