@@ -34,7 +34,7 @@ class MenuBar extends Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" className={classes.flex}>
-                Title
+                Sedneverson
               </Typography>
               <Button color="inherit">Login</Button>
             </Toolbar>
