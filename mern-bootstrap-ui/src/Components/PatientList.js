@@ -61,7 +61,7 @@ const data = [
   createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Bobby Bill', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Mike Robinson', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Mike Robinson', "123 Fake Street. O'fallon, MO USA", 30, 3),
   createPatient('Brandon Hunter', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
   createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
@@ -100,7 +100,9 @@ class PatientList extends Component {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data.map(n => {
+              {data.sort(function(a, b) {
+                return a.incidentCount < b.incidentCount;
+              }).map(n => {
                 return (
                   <TableRow key={n.id} hover onClick={() => this.nextPath('/patient/' + n.id) }
                             className={(n.incidentCount > 0 ? classes.endageredPatientRow : '')}
