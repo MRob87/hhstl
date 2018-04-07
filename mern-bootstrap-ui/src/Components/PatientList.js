@@ -44,6 +44,9 @@ const styles = theme => ({
   control: {
     padding: theme.spacing.unit * 2,
   },
+  endageredPatientRow: {
+    backgroundColor: 'crimson',
+  }
 });
 
 let id = 0;
@@ -53,16 +56,16 @@ function createPatient(name, address, age, incidentCount) {
 }
 
 const data = [
-  createPatient('Mike Robinson', "123 Fake Street", 30, 1),
-  createPatient('Brandon Hunter', "123 Fake Street", 30, 1),
-  createPatient('Jesse Ginnever', "123 Fake Street", 30, 1),
-  createPatient('Billy Bob', "123 Fake Street", 30, 1),
-  createPatient('Bobby Bill', "123 Fake Street", 30, 1),
-  createPatient('Mike Robinson', "123 Fake Street", 30, 1),
-  createPatient('Brandon Hunter', "123 Fake Street", 30, 1),
-  createPatient('Jesse Ginnever', "123 Fake Street", 30, 1),
-  createPatient('Billy Bob', "123 Fake Street", 30, 1),
-  createPatient('Bobby Bill', "123 Fake Street", 30, 1),
+  createPatient('Mike Robinson', "123 Fake Street. O'fallon, MO USA", 30, 2),
+  createPatient('Brandon Hunter', "123 Fake Street. O'fallon, MO USA", 30, 1),
+  createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Bobby Bill', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Mike Robinson', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Brandon Hunter', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
+  createPatient('Bobby Bill', "123 Fake Street. O'fallon, MO USA", 30, 0),
 ];
 
 
@@ -99,7 +102,9 @@ class PatientList extends Component {
             <TableBody>
               {data.map(n => {
                 return (
-                  <TableRow key={n.id} hover onClick={() => this.nextPath('/patient/' + n.id) }>
+                  <TableRow key={n.id} hover onClick={() => this.nextPath('/patient/' + n.id) }
+                            className={(n.incidentCount > 0 ? classes.endageredPatientRow : '')}
+                            hover={(n.incidentCount > 0 ? false : true)} >
                     <TableCell>{n.name}</TableCell>
                     <TableCell>{n.address}</TableCell>
                     <TableCell numeric>{n.age}</TableCell>
