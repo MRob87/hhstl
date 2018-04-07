@@ -4,10 +4,7 @@ import { withStyles } from 'material-ui/styles';
 
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
-
-import {withRouter} from 'react-router-dom';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -71,17 +68,10 @@ const data = [
 
 class PatientList extends Component {
   state = {
-    greetings: ['404 Greetings Not Found!'],
-    greeting: '',
-    spacing: '16'
   };
 
   componentDidMount() {
   }
-
-  handleClick = (event, id) => {
-    alert("Test!");
-  };
 
   nextPath(path) {
     this.props.history.push(path);
@@ -89,7 +79,6 @@ class PatientList extends Component {
 
   render() {
     const { classes } = this.props;
-    const { spacing } = this.state;
 
     return (
       <div className="PatientList">
@@ -110,7 +99,7 @@ class PatientList extends Component {
             <TableBody>
               {data.map(n => {
                 return (
-                  <TableRow key={n.id} hover onClick={() => this.nextPath('/home/' + n.id) }>
+                  <TableRow key={n.id} hover onClick={() => this.nextPath('/patient/' + n.id) }>
                     <TableCell>{n.name}</TableCell>
                     <TableCell>{n.address}</TableCell>
                     <TableCell numeric>{n.age}</TableCell>
