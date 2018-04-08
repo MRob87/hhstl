@@ -64,11 +64,13 @@ class ContactCard extends Component {
             </Typography>
           </CardContent>
           <CardActions>
+          {this.props.nextPath ?
             <Button className={classes.button} 
                     variant="raised" color="secondary"
                     onClick={() => this.nextPath('/patients/'+1+'/incidents')}>
                     View Incident History
             </Button>
+          : ''}
           </CardActions>
         </Card>
       </div>
