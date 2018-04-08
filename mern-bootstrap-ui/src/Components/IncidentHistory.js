@@ -99,6 +99,7 @@ const styles = theme => ({
                     <Grid item sm={9}>
                         <IncidentHistoryTable 
                           tableData={this.state.incidents}
+                          nextPath={this.nextPath.bind(this)}
                         />
                     </Grid>
                 </Grid>

@@ -88,10 +88,10 @@ const styles = theme => ({
 });
 
 class Incident extends Component {
-    constructor(props) {
-        super(props);
-        this.nextPath = this.nextPath.bind(this);
-    }
+  constructor(props) {
+      super(props);
+      this.nextPath = this.nextPath.bind(this);
+  }
   state = {
    
   };
