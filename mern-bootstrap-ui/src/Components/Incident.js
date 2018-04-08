@@ -10,6 +10,7 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import ContactCard from './ContactCard';
+import Alert from './Alert';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -59,11 +60,10 @@ const styles = theme => ({
     textAlign: 'center'
   },
   incidentHeader: {
-    width: '100%',
     padding: 1,
     marginLeft: 'auto',
     marginRight: 'auto',
-    textAlign: 'center'
+    padding: '8px 24px 24px'
   },
   incidentTable: {
     height: 275,
@@ -71,7 +71,6 @@ const styles = theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     verticalAlign: 'middle',
-    textAlign: 'center'
   },
 });
 
@@ -132,7 +131,12 @@ class Incident extends Component {
         <Grid container spacing={16} className={classes.mainContent}>
           <Grid item xs={12} sm={12} spacing={16} margin="normal">
             <Paper margin="normal" className={classes.incidentHeader}>
-              <h3>Incident ID: {this.props.match.params.id}</h3>
+            <Alert 
+              incidentType="Potential Overdose"
+              datetime="11:38PM April 7th 2018"
+              address="123 Fake Street"
+              patientNote="N/A"
+              />
             </Paper>
           </Grid>
           <Grid item xs={12}>
