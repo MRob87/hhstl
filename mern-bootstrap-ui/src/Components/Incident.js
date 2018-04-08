@@ -44,8 +44,6 @@ const styles = theme => ({
   incidentButton: {
     margin: theme.spacing.unit,
     width: '20%',
-    marginLeft: 'auto',
-    marginRight: 'auto',
     float: 'right'
   },
   leftPane: {
@@ -151,6 +149,9 @@ class Incident extends Component {
                 />
                 <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.resolveIncident.bind(this)}>
                   Resolve
+                </Button>
+                <Button variant="raised" color="primary" className={classes.incidentButton} onClick={() => this.nextPath('/patient/' + 6) }>
+                  Back
                 </Button>
             </Paper>
           </Grid>

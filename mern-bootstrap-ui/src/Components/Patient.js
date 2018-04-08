@@ -11,6 +11,7 @@ import ContactCard from './ContactCard';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Alert from './Alert';
 import ActivityService from '../Services/ActivityService';
+import AlertService from '../Services/AlertService'
 
 import ExpansionPanel, {
   ExpansionPanelSummary,
@@ -96,16 +97,7 @@ const styles = theme => ({
   },
 });
 
-let incidentId = 0;
-function createIncidentAlert(type, datetime, address, patientNote, incidentStatus) {
-  incidentId += 1;
-  return { incidentId, type, datetime, address, patientNote, incidentStatus};
-}
-
-const incidents = [
-  createIncidentAlert('Potential Overdose', "11:38PM April 7th 2018", '123 Overdose Street', 'N/A', 'In Progess'),
-  createIncidentAlert('Ahead of Schedule', '5:38AM April 7th 2018', '123 Breakfast Street', 'Ate early and needed to take it with a full stomach', 'In Progress'),
-];
+const incidents = AlertService.getActivityByPatientId(3);
 
 class Patient extends Component {
   constructor(props) {
