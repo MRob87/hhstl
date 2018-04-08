@@ -61,6 +61,13 @@ const styles = theme => ({
     control: {
       padding: theme.spacing.unit * 2,
     },
+    incidentHistoryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        fontWeight: theme.typography.fontWeightRegular,
+        marginLeft: 8,
+        marginTop: 20,
+        textAlign: 'left'
+    },
   });
 
   class IncidentHistoryTable extends Component {
@@ -88,6 +95,11 @@ const styles = theme => ({
       return (
         <div className="IncidentHistory">
             <Table className={classes.table}>
+            <TableHead>
+                <TableRow>
+                    <Typography className={classes.incidentHistoryHeading} variant="title">Incident History</Typography>
+                </TableRow>
+            </TableHead>
             <TableHead>
                 <TableRow>
                 <TableCell>Type</TableCell>

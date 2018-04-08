@@ -13,6 +13,7 @@ import ContactCard from './ContactCard';
 import Alert from './Alert';
 import IncidentService from '../Services/IncidentService';
 import IncidentHistoryTable from './IncidentHistoryTable';
+import MessageService from '../Services/MessageService';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -33,8 +34,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: '90%',
-    height: '70%'
+    width: 200,
   },
   button: {
     margin: theme.spacing.unit,
@@ -76,54 +76,42 @@ const styles = theme => ({
     verticalAlign: 'middle',
     textAlign: 'center'
   },
+  incidentNotesSection: {
+    height: 120,
+    padding: 16,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    verticalAlign: 'middle',
+    textAlign: 'center'
+  },
+  messageHistoryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    fontWeight: theme.typography.fontWeightRegular,
+    marginLeft: 8,
+    marginTop: 20,
+    textAlign: 'left'
+},
 });
 
 const incidentHistory = IncidentService.getIncidentsById(3);
 
+const data = MessageService.getMessagesByPatientId()
+
 class Incident extends Component {
   state = {
-    greetings: ['404 Greetings Not Found!'],
-    greeting: '',
+    message: 'I\'m a note for the incident',
     spacing: '16'
   };
 
   componentDidMount() {
-    this.getAllGreetings();
   }
 
-  handleChange(string) {
-  }
-
-  getAllGreetings() {
-    HelloService.getGreeting()
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          greetings: responseJson,
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
-  updateIncident() {
-    HelloService.postGreeting(this.state.greeting).then((response) => response.json())
-      .then((responseJson) => {
-        this.getAllGreetings()
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  createIncident() {
+    
   }
 
   resolveIncident() {
-    HelloService.deleteGreetings().then((responseJson) => {
-      this.getAllGreetings()
-    })
-      .catch((error) => {
-        console.error(error);
-      });
+    
   }
 
   render() {
@@ -148,31 +136,57 @@ class Incident extends Component {
             </Paper>
           </Grid>
           <Grid item xs={12}>
+            <Paper className={classes.incidentNotesSection}>
+            <TextField
+              id="new-incident-note"
+              label="Enter Incident Note"
+              InputLabelProps={{
+                shrink: true,
+              }}
+              placeholder={this.state.message}
+              fullWidth
+              margin="normal"
+            />
+            <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.createIncident.bind(this)}>
+              Submit Message
+            </Button>
+            </Paper>
+          </Grid>
+          <Grid item xs={12}>
             <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
               <Grid item sm={3} margin="normal">
                   <ContactCard />
               </Grid>
-              <Grid item xs={3} margin="normal">
-                <Paper className={classes.incidentTable}>
-                  <TextField
-                    id="multiline-flexible"
-                    label="Incident Notes"
-                    multiline
-                    rowsMax="4"
-                    rows="4"
-                    cols="20"
-                    value={this.state.incidentNotes}
-                    onChange={this.handleChange('multiline')}
-                    className={classes.textField}
-                    margin="normal"
-                    autoFocus="true"
-                  />
-                  <Button disabled variant="raised" color="secondary" className={classes.button} onClick={this.updateIncident.bind(this)}>
-                    Submit &amp; Exit
-                  </Button>
+              <Grid item sm={5} margin="normal">
+                <Paper className={classes.rightPane}>
+                <Table className={classes.table}>
+                    <TableHead>
+                      <TableRow>
+                          <Typography className={classes.messageHistoryHeading} variant="title">Message History</Typography>
+                      </TableRow>
+                    </TableHead>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Time</TableCell>
+                        <TableCell>By</TableCell>
+                        <TableCell>Message</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {data.map(n => {
+                        return (
+                          <TableRow key={n.id}>
+                            <TableCell>{n.timestamp}</TableCell>
+                            <TableCell numeric>{n.creator}</TableCell>
+                            <TableCell numeric>{n.message}</TableCell>
+                          </TableRow>
+                        );
+                      })}
+                    </TableBody>
+                  </Table>
                 </Paper>
               </Grid>
-              <Grid item xs={6} margin="normal">
+              <Grid item sm={4} margin="normal">
                 <Paper className={classes.rightPane}>
                 <h3>Quick History</h3>
                 <IncidentHistoryTable 
