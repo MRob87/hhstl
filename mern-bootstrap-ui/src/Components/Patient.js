@@ -10,6 +10,7 @@ import { FormControl } from 'material-ui/Form';
 import ContactCard from './ContactCard';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Alert from './Alert';
+import ActivityService from '../Services/ActivityService';
 
 import ExpansionPanel, {
   ExpansionPanelSummary,
@@ -106,32 +107,22 @@ const incidents = [
   createIncidentAlert('Ahead of Schedule', '5:38AM April 7th 2018', '123 Breakfast Street', 'Ate early and needed to take it with a full stomach', 'In Progress'),
 ];
 
-let activityId = 0;
-function createActivity(medicineType, ingestionDatetime, scheduledDatetime, location, type) {
-  activityId += 1;
-  return { activityId, medicineType, ingestionDatetime, scheduledDatetime, location, type};
-}
-
-const activityHistory = [
-  createActivity('Vicodin', 'Missed',               '2:30:00 PM April 6th',   '123 Normal Use Street', 'Missed'),
-  createActivity('Vicodin', '8:23:34 AM April 6th',  '8:30:00 AM April 6th',   '123 Normal Use Street', 'Scheduled'),
-  createActivity('Vicodin', '2:43:23 PM April 5th', '2:30:00 PM April 5th',   '123 Normal Use Street', 'Scheduled'),
-  createActivity('Vicodin', '11:43:23 AM April 5th', 'Unscheduled Ingestion',  '123 Normal Use Street', 'Unscheduled'),
-  createActivity('Vicodin', '8:43:23 AM April 5th', '8:30:00 AM April 5th',   '123 Normal Use Street', 'Scheduled'),
-];
-
 class Patient extends Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-    }
   }
   state = {
+    activityHistory: [],
     spacing: '16',
   };
 
   componentDidMount() {
+    const activityHistory = ActivityService.getActivityByPatientId(this.props.match.params.id);
+    
+    this.setState({
+      activityHistory: activityHistory
+    });
+    console.log(this.props.match.params.id);
   }
 
   nextPath(path) {
@@ -191,7 +182,7 @@ class Patient extends Component {
                           </TableRow>
                         </TableHead>
                         <TableBody>
-                          {activityHistory.map(n => {
+                          {this.state.activityHistory.map(n => {
                             return (
                               <TableRow hover={(n.type === 'Missed' || n.type === 'Unscheduled' ? false : true)} 
                                         key={n.id} 
