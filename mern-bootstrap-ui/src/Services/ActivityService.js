@@ -18,8 +18,15 @@ const activityHistory = [
   createActivity('1', 'Oxycodone', '11:43:23 AM April 5th', 'Unscheduled Ingestion',  '123 Normal Use Street', 'Unscheduled'),
   createActivity('1', 'Oxycodone', '8:43:23 AM April 5th', '8:30:00 AM April 5th',   '123 Normal Use Street', 'Scheduled'),
   createActivity('2', 'Codeine', 'Missed',               '2:30:00 PM April 6th',   '123 Normal Use Street', 'Missed'),
-  createActivity('2', 'Codeine', '8:23:34 AM April 6th',  '8:30:00 AM April 6th',   '123 Normal Use Street', 'Scheduled'),
-  createActivity('2', 'Codeine', '2:43:23 PM April 5th', '2:30:00 PM April 5th',   '123 Normal Use Street', 'Scheduled'),
+  createActivity('2', 'Codeine', '8:23:34 AM April 6th',  'Unscheduled Ingestion',   '123 Normal Use Street', 'Unscheduled'),
+  createActivity('2', 'Codeine', '8:23:15 AM April 6th',  'Unscheduled Ingestion',   '123 Normal Use Street', 'Unscheduled'),
+  createActivity('2', 'Codeine', '8:22:34 AM April 6th',  '8:30:00 AM April 6th',   '123 Normal Use Street', 'Scheduled'),
+  createActivity('2', 'Codeine', '2:43:01 PM April 5th', '2:30:00 PM April 5th',   '123 Normal Use Street', 'Scheduled'),
+  createActivity('3', 'Methadone', '8:23:34 AM April 6th',  '8:30:00 AM April 6th',   '123 Normal Use Street', 'Scheduled'),
+  createActivity('3', 'Methadone', '3:10:00 PM April 5th',               '2:30:00 PM April 5th',   '123 Normal Use Street', 'Scheduled'),
+  createActivity('3', 'Methadone', '11:43:23 AM April 5th', '11:30:00 AM April 5th',  '123 Normal Use Street', 'Scheduled'),
+  createActivity('3', 'Methadone', '8:43:23 AM April 5th', '8:30:00 AM April 5th',   '123 Normal Use Street', 'Scheduled'),
+  createActivity('3', 'Methadone', '11:23:23 AM April 5th', '8:30:00 AM April 5th',   '123 Normal Use Street', 'Scheduled'),
 ];
 
 ActivityService.getActivityByPatientId = function(patientId) {
