@@ -9,6 +9,7 @@ import Typography from 'material-ui/Typography';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import ContactCard from './ContactCard';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -29,16 +30,22 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
+    width: '90%',
+    height: '70%'
   },
   button: {
     margin: theme.spacing.unit,
     width: 150,
     float: 'right'
   },
+  incidentButton: {
+    margin: theme.spacing.unit,
+    width: '20%',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  },
   leftPane: {
     height: 140,
-    width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: 1,
@@ -46,7 +53,6 @@ const styles = theme => ({
   },
   rightPane: {
     height: 140,
-    width: '90%',
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: 1,
@@ -62,7 +68,6 @@ const styles = theme => ({
   incidentTable: {
     height: 275,
     width: '100%',
-    padding: 1,
     marginLeft: 'auto',
     marginRight: 'auto',
     verticalAlign: 'middle',
@@ -132,12 +137,10 @@ class Incident extends Component {
           </Grid>
           <Grid item xs={12}>
             <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
-              <Grid item sm={4} margin="normal">
-                <Paper className={classes.leftPane}>
-                  <h3>Contact Info</h3>
-                </Paper>
+              <Grid item sm={3} margin="normal">
+                  <ContactCard />
               </Grid>
-              <Grid item xs={4} margin="normal">
+              <Grid item xs={5} margin="normal">
                 <Paper className={classes.incidentTable}>
                   <TextField
                     id="multiline-flexible"
@@ -152,24 +155,20 @@ class Incident extends Component {
                     margin="normal"
                     autoFocus="true"
                   />
-                  <br />
-                  <br />
-                  <br />
                   <Button disabled variant="raised" color="secondary" className={classes.button} onClick={this.updateIncident.bind(this)}>
                     Submit &amp; Exit
-              </Button>
-                  <br />
-                  <br />
-                  <br />
-                  <Button variant="raised" color="primary" className={classes.button} onClick={this.resolveIncident.bind(this)}>
-                    Resolve
-              </Button>
+                  </Button>
                 </Paper>
               </Grid>
               <Grid item sm={4} margin="normal">
                 <Paper className={classes.rightPane}>
                   <h3>Incident History</h3>
                 </Paper>
+              </Grid>
+              <Grid item sm={12} margin="normal">
+                <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.resolveIncident.bind(this)}>
+                  Resolve
+                </Button>
               </Grid>
             </Grid>
           </Grid>
