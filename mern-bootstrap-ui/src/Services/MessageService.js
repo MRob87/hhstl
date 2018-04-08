@@ -21,8 +21,8 @@ MessageService.getMessagesByPatientId = function(id) {
     return data;
 }
 
-MessageService.addMessagesByPatientId = function(timestamp, message, creator) {
-    return createData("11 April", message, creator);
+MessageService.createMessage = function(timestamp, message, creator) {
+    return data.push(createData("11 April", message, creator));
 }
 
 export default MessageService

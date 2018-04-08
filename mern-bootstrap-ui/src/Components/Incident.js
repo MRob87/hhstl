@@ -95,19 +95,25 @@ const styles = theme => ({
 
 const incidentHistory = IncidentService.getIncidentsById(3);
 
-const data = MessageService.getMessagesByPatientId()
-
 class Incident extends Component {
   state = {
     message: 'I\'m a note for the incident',
+    messages: [],
     spacing: '16'
   };
 
   componentDidMount() {
+    this.setState({
+      messages: MessageService.getMessagesByPatientId()
+    });
   }
 
-  createIncident() {
-    
+  createMessage() {
+    MessageService.createMessage(this.state.message, "Jesse G");
+    const newMessages = MessageService.getMessagesByPatientId();
+    this.setState({
+      messages: newMessages
+    });
   }
 
   resolveIncident() {
@@ -147,7 +153,7 @@ class Incident extends Component {
               fullWidth
               margin="normal"
             />
-            <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.createIncident.bind(this)}>
+            <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.createMessage.bind(this)}>
               Submit Message
             </Button>
             </Paper>
@@ -173,7 +179,7 @@ class Incident extends Component {
                       </TableRow>
                     </TableHead>
                     <TableBody>
-                      {data.map(n => {
+                      {this.state.messages.map(n => {
                         return (
                           <TableRow key={n.id}>
                             <TableCell>{n.timestamp}</TableCell>
@@ -188,7 +194,6 @@ class Incident extends Component {
               </Grid>
               <Grid item sm={4} margin="normal">
                 <Paper className={classes.rightPane}>
-                <h3>Quick History</h3>
                 <IncidentHistoryTable 
                   tableData={incidentHistory}
                 />
