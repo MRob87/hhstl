@@ -89,7 +89,7 @@ const styles = theme => ({
         <div className="IncidentHistory">
           <Paper className={classes.root} elevation={4}>
             <Typography variant="headline" component="h3">
-                {this.state.incidents[0].data.name} - Incident History
+                Incident History
             </Typography>
             <Grid container spacing={16} className={classes.root}>
                 <Grid container justify="center" spacing={Number(spacing)}>
