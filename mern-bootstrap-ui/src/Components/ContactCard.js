@@ -5,6 +5,8 @@ import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 
+import ContactService from '../Services/ContactService'
+
 const styles = {
   card: {
     backgroundColor: 'lightgrey',
@@ -27,11 +29,20 @@ class ContactCard extends Component {
     super(props);
     this.nextPath = this.nextPath.bind(this);
   }
-  state = {};
+  
+  state = {
+    contact: {undefined}
+  };
+
   propTypes = {
     classes: PropTypes.object.isRequired,
   };
+
   componentDidMount() {
+    const contactInfo = ContactService.getContactByPatientId(this.props.patientId);
+    this.setState({
+      contact: contactInfo[0]
+    });
   }
 
   handleChange(string) {
@@ -48,19 +59,19 @@ class ContactCard extends Component {
         <Card className={classes.card}>
           <CardContent >
             <Typography gutterBottom variant="headline" component="h2">
-              Jesse Ginnever
+              {this.state.contact.name}
             </Typography>
             <Typography component="p" className={classes.contactLine}>
-              (666) 666-6666
+              {this.state.contact.phone}
             </Typography>
             <Typography component="p" className={classes.contactLine}>
-              JesseGinnever@AOLHotmail.com
+            {this.state.contact.email}
             </Typography>
             <Typography component="p" className={classes.contactLine}>
-              123 Overdose St. O'fallon, MO
+            {this.state.contact.address}
             </Typography>
             <Typography component="p" className={classes.contactLine}>
-              United States
+            {this.state.contact.country}
             </Typography>
           </CardContent>
           <CardActions>
