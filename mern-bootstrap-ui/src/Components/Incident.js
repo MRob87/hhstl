@@ -150,7 +150,9 @@ class Incident extends Component {
           <Grid item xs={12}>
             <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
               <Grid item sm={3} margin="normal">
-                  <ContactCard />
+                  <ContactCard 
+                     nextPath={this.nextPath.bind(this)} 
+                  />
               </Grid>
               <Grid item xs={3} margin="normal">
                 <Paper className={classes.incidentTable}>
