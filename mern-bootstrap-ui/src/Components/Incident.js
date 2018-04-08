@@ -11,6 +11,8 @@ import Button from 'material-ui/Button';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import ContactCard from './ContactCard';
 import Alert from './Alert';
+import IncidentService from '../Services/IncidentService';
+import IncidentHistoryTable from './IncidentHistoryTable';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -54,7 +56,6 @@ const styles = theme => ({
     textAlign: 'center'
   },
   rightPane: {
-    height: 140,
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: 1,
@@ -75,6 +76,8 @@ const styles = theme => ({
     textAlign: 'center'
   },
 });
+
+const incidentHistory = IncidentService.getIncidentsById(3);
 
 class Incident extends Component {
   state = {
@@ -147,7 +150,7 @@ class Incident extends Component {
               <Grid item sm={3} margin="normal">
                   <ContactCard />
               </Grid>
-              <Grid item xs={5} margin="normal">
+              <Grid item xs={3} margin="normal">
                 <Paper className={classes.incidentTable}>
                   <TextField
                     id="multiline-flexible"
@@ -167,9 +170,11 @@ class Incident extends Component {
                   </Button>
                 </Paper>
               </Grid>
-              <Grid item sm={4} margin="normal">
+              <Grid item sm={6} margin="normal">
                 <Paper className={classes.rightPane}>
-                  <h3>Incident History</h3>
+                <IncidentHistoryTable 
+                  tableData={incidentHistory}
+                />
                 </Paper>
               </Grid>
               <Grid item sm={12} margin="normal">
