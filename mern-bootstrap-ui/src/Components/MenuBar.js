@@ -78,7 +78,7 @@ class MenuBar extends Component {
               </Menu>
               <Typography variant="title" color="inherit" className={classes.flex}>
               <img className={classes.pillImage} src='/images/pill-logo.png' width='48px' height='48px'/>
-                Sedneverson
+                Pairwise
               </Typography>
               {/* Messages */}
               <IconButton 
