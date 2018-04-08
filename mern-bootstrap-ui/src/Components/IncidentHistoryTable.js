@@ -109,7 +109,7 @@ const styles = theme => ({
             <TableBody>
                 {this.props.tableData.map(n => {
                 return (
-                    <TableRow key={n.incidentId} hover onClick={() => this.nextPath('/incident/'+n.incidentId) }>
+                    <TableRow key={n.incidentId} hover onClick={() => this.nextPath('/patient/6/incident/1')}>
                     <TableCell>{n.type}</TableCell>
                     <TableCell>{n.data.address}</TableCell>
                     <TableCell>{n.data.timestamp}</TableCell>

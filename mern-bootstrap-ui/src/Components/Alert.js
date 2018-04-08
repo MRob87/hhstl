@@ -132,7 +132,7 @@ class Incident extends Component {
                     <Input id="incident-status" value={this.props.incidentStatus} disabled/>
                 </FormControl>
                 {this.props.nextPath ?
-                    <Button variant="raised" className={classes.button} color="secondary" onClick={() => this.nextPath('/incident/' + 6) }>
+                    <Button variant="raised" className={classes.button} color="secondary" onClick={() => this.nextPath('/patient/6/incident/1') }>
                         View Incident
                     </Button>
                 : ''}

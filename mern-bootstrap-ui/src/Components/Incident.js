@@ -14,6 +14,7 @@ import Alert from './Alert';
 import IncidentService from '../Services/IncidentService';
 import IncidentHistoryTable from './IncidentHistoryTable';
 import MessageService from '../Services/MessageService';
+import AlertService from '../Services/AlertService'
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -97,7 +98,8 @@ class Incident extends Component {
   state = {
     message: 'Contact Made: Forgot Dose',
     messages: [],
-    spacing: '16'
+    spacing: '16',
+    status: 'In Progress'
   };
 
   componentDidMount() {
@@ -121,10 +123,11 @@ class Incident extends Component {
     });
   }
 
-  update
-
   resolveIncident() {
-    
+    this.setState({
+      status: 'Completed'
+    });
+    AlertService.updateActivityById();
   }
   
   nextPath(path) {
@@ -145,7 +148,7 @@ class Incident extends Component {
                 datetime="11:38PM April 7th 2018"
                 address="123 Fake Street"
                 patientNote="N/A"
-                incidentStatus="In Progress"
+                incidentStatus={this.state.status}
                 />
                 <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.resolveIncident.bind(this)}>
                   Resolve

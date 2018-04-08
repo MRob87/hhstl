@@ -132,7 +132,7 @@ class Patient extends Component {
                 <Grid item sm={12}>
                     <ExpansionPanel>
                       <ExpansionPanelSummary className={classes.alertPanel} expandIcon={<ExpandMoreIcon />}>
-                        <Typography className={classes.alertHeading}>2 Alerts!</Typography>
+                        <Typography className={classes.alertHeading}>Alerts!</Typography>
                       </ExpansionPanelSummary>
                       <ExpansionPanelDetails>
                         <Grid item xs={12}>

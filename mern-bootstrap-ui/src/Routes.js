@@ -14,7 +14,7 @@ export default () => (
       <Route path="/" exact component={PatientList} />
       <Route path="/patient/:id" exact component={Patient} />
       <Route path="/patientList" exact component={PatientList} />
-      <Route path="/incident/:id" exact component={Incident} />
+      <Route path="/patient/:id/incident/:incidentId" exact component={Incident} />
       <Route path="/patients/:id/incidents" exact component={IncidentHistory} />
     </Switch>
   </BrowserRouter>
