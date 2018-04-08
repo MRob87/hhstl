@@ -22,6 +22,10 @@ const styles = {
     marginLeft: -12,
     marginRight: 20,
   },
+  pillImage: {
+    borderRadius: 26,
+    boxShadow: '0 2px 0 rgba(255,255,255,0.2), inset 0 8px 10px rgba(0, 0, 0, 0.4), inset 2px 0px rgba(0, 0, 0, 0.6)'
+  }
 };
 
 class MenuBar extends Component {
@@ -73,7 +77,7 @@ class MenuBar extends Component {
                 <MenuItem onClick={this.handleClose}>Logout</MenuItem>
               </Menu>
               <Typography variant="title" color="inherit" className={classes.flex}>
-              <img src='/images/pill-logo.png' width='48px' height='48px'/>
+              <img className={classes.pillImage} src='/images/pill-logo.png' width='48px' height='48px'/>
                 Sedneverson
               </Typography>
               {/* Messages */}
