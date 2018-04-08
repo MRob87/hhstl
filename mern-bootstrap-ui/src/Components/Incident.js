@@ -71,6 +71,7 @@ const styles = theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     verticalAlign: 'middle',
+    textAlign: 'center'
   },
 });
 
