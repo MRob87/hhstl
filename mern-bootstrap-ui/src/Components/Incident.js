@@ -113,6 +113,10 @@ class Incident extends Component {
   resolveIncident() {
     
   }
+  
+  nextPath(path) {
+    this.props.history.push(path);
+  }
 
   render() {
     const { classes } = this.props;
@@ -191,6 +195,7 @@ class Incident extends Component {
                 <h3>Quick History</h3>
                 <IncidentHistoryTable 
                   tableData={incidentHistory}
+                  nextPath={this.nextPath.bind(this)}
                 />
                 </Paper>
               </Grid>

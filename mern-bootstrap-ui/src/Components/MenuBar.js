@@ -90,8 +90,8 @@ class MenuBar extends Component {
                 open={Boolean(anchorElMessageList)}
                 onClose={this.handleCloseMessagesList}
               >
-                <MenuItem onClick={this.handleCloseMessagesList}><img src="/images/social-worker-icon.png" />Jesse - <br /> how are you?</MenuItem>
-                <MenuItem onClick={this.handleCloseMessagesList}><img src="/images/dr-icon.png" />Dr. Martin -  <br />You need to see us</MenuItem>
+                <MenuItem onClick={this.handleCloseMessagesList}><img src="/images/social-worker-icon.png"  width='36px' height='36px' /><b>Jesse</b>  -  how are you?</MenuItem>
+                <MenuItem onClick={this.handleCloseMessagesList}><img src="/images/dr-icon.png"  width='36px' height='36px' /><b>Dr. Martin</b>  -  You need to see us</MenuItem>
               </Menu>
               {/* <Button color="inherit">Login</Button> */}
             </Toolbar>
