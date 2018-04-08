@@ -78,7 +78,7 @@ class ContactCard extends Component {
           {this.props.nextPath ?
             <Button className={classes.button} 
                     variant="raised" color="secondary"
-                    onClick={() => this.nextPath('/patients/'+1+'/incidents')}>
+                    onClick={() => this.nextPath('/patients/'+ this.props.patientId +'/incidents')}>
                     View Incident History
             </Button>
           : ''}
