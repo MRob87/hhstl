@@ -59,7 +59,7 @@ const styles = theme => ({
     marginLeft: 'auto',
     marginRight: 'auto',
     padding: 1,
-    textAlign: 'center'
+    textAlign: 'left'
   },
   incidentHeader: {
     padding: 1,
@@ -172,8 +172,9 @@ class Incident extends Component {
                   </Button>
                 </Paper>
               </Grid>
-              <Grid item sm={6} margin="normal">
+              <Grid item xs={6} margin="normal">
                 <Paper className={classes.rightPane}>
+                <h3>Quick History</h3>
                 <IncidentHistoryTable 
                   tableData={incidentHistory}
                 />
