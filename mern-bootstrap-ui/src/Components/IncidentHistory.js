@@ -94,9 +94,7 @@ const styles = theme => ({
             <Grid container spacing={16} className={classes.root}>
                 <Grid container justify="center" spacing={Number(spacing)}>
                     <Grid item sm={3}>
-                        <ContactCard
-                          nextPath={this.nextPath.bind(this)} 
-                        />
+                        <ContactCard />
                     </Grid>
                     <Grid item sm={9}>
                         <IncidentHistoryTable 

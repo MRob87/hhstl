@@ -170,9 +170,7 @@ class Patient extends Component {
                     </ExpansionPanel>
                 </Grid>
                 <Grid item sm={3}>
-                    <ContactCard 
-                       nextPath={this.nextPath.bind(this)} 
-                    />
+                    <ContactCard />
                 </Grid>
                 <Grid item sm={9}>
                     <Paper className={classes.scheduleTable} elevation={4}>
