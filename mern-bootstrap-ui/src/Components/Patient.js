@@ -96,20 +96,20 @@ const styles = theme => ({
 });
 
 let incidentId = 0;
-function createIncidentAlert(type, datetime, address, patientNote) {
+function createIncidentAlert(type, datetime, address, patientNote, incidentStatus) {
   incidentId += 1;
-  return { incidentId, type, datetime, address, patientNote };
+  return { incidentId, type, datetime, address, patientNote, incidentStatus};
 }
 
 const incidents = [
-  createIncidentAlert('Potential Overdose', "11:38PM April 7th 2018", '123 Overdose Street', 'N/A'),
-  createIncidentAlert('Ahead of Schedule', '5:38AM April 7th 2018', '123 Breakfast Street', 'Ate early and needed to take it with a full stomach'),
+  createIncidentAlert('Potential Overdose', "11:38PM April 7th 2018", '123 Overdose Street', 'N/A', 'In Progess'),
+  createIncidentAlert('Ahead of Schedule', '5:38AM April 7th 2018', '123 Breakfast Street', 'Ate early and needed to take it with a full stomach', 'In Progress'),
 ];
 
 let activityId = 0;
 function createActivity(medicineType, ingestionDatetime, scheduledDatetime, location, type) {
   activityId += 1;
-  return { activityId, medicineType, ingestionDatetime, scheduledDatetime, location, type };
+  return { activityId, medicineType, ingestionDatetime, scheduledDatetime, location, type};
 }
 
 const activityHistory = [
@@ -185,6 +185,7 @@ class Patient extends Component {
                                         datetime={n.datetime}
                                         address={n.address}
                                         patientNote={n.patientNote}
+                                        incidentStatus={n.incidentStatus}
                                         nextPath={this.nextPath.bind(this)}
                                        />
                             );

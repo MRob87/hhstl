@@ -116,16 +116,20 @@ class Incident extends Component {
             <Grid item xs={12}>
                 <Typography className={classes.heading}>Incident</Typography>
                 <FormControl className={classes.incidentType}>
-                <InputLabel>Incident Type</InputLabel>
-                <Input id="incident-type" value={this.props.incidentType} disabled/>
+                    <InputLabel>Incident Type</InputLabel>
+                    <Input id="incident-type" value={this.props.incidentType} disabled/>
                 </FormControl>
                 <FormControl className={classes.incidentDateTime}>
-                <InputLabel>Incident Date/Time</InputLabel>
-                <Input id="incident-time" value={this.props.datetime} disabled/>
+                    <InputLabel>Incident Date/Time</InputLabel>
+                    <Input id="incident-time" value={this.props.datetime} disabled/>
                 </FormControl>
                 <FormControl className={classes.incidentLocation}>
-                <InputLabel>Incident Location</InputLabel>
-                <Input id="incident-Location" value={this.props.address} disabled/>
+                    <InputLabel>Incident Location</InputLabel>
+                    <Input id="incident-Location" value={this.props.address} disabled/>
+                </FormControl>
+                <FormControl className={classes.incidentType}>
+                    <InputLabel>Incident Status</InputLabel>
+                    <Input id="incident-status" value={this.props.incidentStatus} disabled/>
                 </FormControl>
                 {this.props.nextPath ?
                     <Button variant="raised" className={classes.button} color="secondary" onClick={() => this.nextPath('/incident/' + 3) }>
@@ -135,8 +139,8 @@ class Incident extends Component {
             </Grid>
                 <Grid item xs={12}>
                     <FormControl fullWidth className={classes.incidentNote}>
-                    <InputLabel>Patient Note</InputLabel>
-                    <Input id="incident-note" value={this.props.patientNote} disabled/>
+                        <InputLabel>Patient Note</InputLabel>
+                        <Input id="incident-note" value={this.props.patientNote} disabled/>
                     </FormControl>
                 </Grid>
             </Grid>

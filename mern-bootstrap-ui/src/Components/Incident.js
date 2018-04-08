@@ -136,6 +136,7 @@ class Incident extends Component {
               datetime="11:38PM April 7th 2018"
               address="123 Fake Street"
               patientNote="N/A"
+              incidentStatus="In Progress"
               />
             </Paper>
           </Grid>
