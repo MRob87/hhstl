@@ -20,7 +20,7 @@ MessageService.getMessagesByPatientId = function(id) {
 
 MessageService.createMessage = function(message, creator) {
     const time = new Date();
-    const dateString = time.toISOString().substring(8, 10) + '/' + time.toISOString().substring(2, 4) + '/' + time.toISOString().substring(5, 7);
+    const dateString = time.toISOString().substring(5, 7) + '/' + '/' + time.toISOString().substring(8, 10) + '/' + time.toISOString().substring(2, 4);
     return data.unshift(createData(dateString, message, creator));
 }
 
