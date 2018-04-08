@@ -150,7 +150,7 @@ class Incident extends Component {
                 <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.resolveIncident.bind(this)}>
                   Resolve
                 </Button>
-                <Button variant="raised" color="primary" className={classes.incidentButton} onClick={() => this.nextPath('/patient/' + 6) }>
+                <Button variant="raised" color="secondary" className={classes.incidentButton} onClick={() => this.nextPath('/patient/' + this.props.match.params.id) }>
                   Back
                 </Button>
             </Paper>
