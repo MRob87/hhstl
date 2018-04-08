@@ -9,6 +9,7 @@ import Input, { InputLabel } from 'material-ui/Input';
 import { FormControl } from 'material-ui/Form';
 import ContactCard from './ContactCard';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Alert from './Alert';
 
 import ExpansionPanel, {
   ExpansionPanelSummary,
@@ -95,20 +96,20 @@ const styles = theme => ({
 });
 
 let incidentId = 0;
-function createIncidentAlert(type, datetime, address, patientNote) {
+function createIncidentAlert(type, datetime, address, patientNote, incidentStatus) {
   incidentId += 1;
-  return { incidentId, type, datetime, address, patientNote };
+  return { incidentId, type, datetime, address, patientNote, incidentStatus};
 }
 
 const incidents = [
-  createIncidentAlert('Potential Overdose', "11:38PM April 7th 2018", '123 Overdose Street', 'N/A'),
-  createIncidentAlert('Ahead of Schedule', '5:38AM April 7th 2018', '123 Breakfast Street', 'Ate early and needed to take it with a full stomach'),
+  createIncidentAlert('Potential Overdose', "11:38PM April 7th 2018", '123 Overdose Street', 'N/A', 'In Progess'),
+  createIncidentAlert('Ahead of Schedule', '5:38AM April 7th 2018', '123 Breakfast Street', 'Ate early and needed to take it with a full stomach', 'In Progress'),
 ];
 
 let activityId = 0;
 function createActivity(medicineType, ingestionDatetime, scheduledDatetime, location, type) {
   activityId += 1;
-  return { activityId, medicineType, ingestionDatetime, scheduledDatetime, location, type };
+  return { activityId, medicineType, ingestionDatetime, scheduledDatetime, location, type};
 }
 
 const activityHistory = [
@@ -119,7 +120,13 @@ const activityHistory = [
   createActivity('Vicodin', '8:43:23 AM April 5th', '8:30:00 AM April 5th',   '123 Normal Use Street', 'Scheduled'),
 ];
 
-class IncidentView extends Component {
+class Patient extends Component {
+  constructor(props) {
+    super(props);
+    
+    this.state = {
+    }
+  }
   state = {
     spacing: '16',
   };
@@ -148,7 +155,7 @@ class IncidentView extends Component {
                         <Grid item xs={12}>
                           {incidents.map(n => {
                             return (
-                              <Grid item xs={12}>
+                              /*<Grid item xs={12}>
                                 <Grid item xs={12}>
                                   <Typography className={classes.heading}>Incident</Typography>
                                   <FormControl className={classes.incidentType}>
@@ -173,7 +180,14 @@ class IncidentView extends Component {
                                     <Input id="incident-note" value={n.patientNote} disabled/>
                                   </FormControl>
                                 </Grid>
-                              </Grid>
+                              </Grid>*/<Alert 
+                                        incidentType={n.type} 
+                                        datetime={n.datetime}
+                                        address={n.address}
+                                        patientNote={n.patientNote}
+                                        incidentStatus={n.incidentStatus}
+                                        nextPath={this.nextPath.bind(this)}
+                                       />
                             );
                           })}
                         </Grid>
@@ -222,4 +236,4 @@ class IncidentView extends Component {
     );
   }
 }
-export default withStyles(styles)(IncidentView);
+export default withStyles(styles)(Patient);
