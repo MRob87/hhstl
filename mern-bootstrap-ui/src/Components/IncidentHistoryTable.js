@@ -11,7 +11,6 @@ import Button from 'material-ui/Button';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 import Input, { InputLabel } from 'material-ui/Input';
 import { FormControl, FormHelperText } from 'material-ui/Form';
-import ContactCard from './ContactCard';
 
 const styles = theme => ({
     root: theme.mixins.gutters({
