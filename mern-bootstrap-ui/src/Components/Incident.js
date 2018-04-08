@@ -97,7 +97,7 @@ const incidentHistory = IncidentService.getIncidentsById(3);
 
 class Incident extends Component {
   state = {
-    message: 'I\'m a note for the incident',
+    message: 'Contact Made: Forgot Dose',
     messages: [],
     spacing: '16'
   };
@@ -109,12 +109,20 @@ class Incident extends Component {
   }
 
   createMessage() {
-    MessageService.createMessage(this.state.message, "Jesse G");
+    MessageService.createMessage(this.state.message, "Anna Bronner");
     const newMessages = MessageService.getMessagesByPatientId();
     this.setState({
       messages: newMessages
     });
   }
+
+  updateMessage(event) {
+    this.setState({
+      message: event.target.value
+    });
+  }
+
+  update
 
   resolveIncident() {
     
@@ -154,6 +162,7 @@ class Incident extends Component {
                 shrink: true,
               }}
               placeholder={this.state.message}
+              onChange={(event) => this.updateMessage(event)}
               fullWidth
               margin="normal"
             />
@@ -177,8 +186,8 @@ class Incident extends Component {
                     </TableHead>
                     <TableHead>
                       <TableRow>
-                        <TableCell>Time</TableCell>
-                        <TableCell>By</TableCell>
+                        <TableCell>Date</TableCell>
+                        <TableCell>Contact</TableCell>
                         <TableCell>Message</TableCell>
                       </TableRow>
                     </TableHead>
@@ -187,8 +196,8 @@ class Incident extends Component {
                         return (
                           <TableRow key={n.id}>
                             <TableCell>{n.timestamp}</TableCell>
-                            <TableCell numeric>{n.creator}</TableCell>
-                            <TableCell numeric>{n.message}</TableCell>
+                            <TableCell>{n.creator}</TableCell>
+                            <TableCell>{n.message}</TableCell>
                           </TableRow>
                         );
                       })}
