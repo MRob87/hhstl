@@ -65,7 +65,8 @@ const styles = theme => ({
     padding: 1,
     marginLeft: 'auto',
     marginRight: 'auto',
-    padding: '8px 24px 24px'
+    padding: '8px 24px 24px',
+    height: 190
   },
   incidentTable: {
     height: 275,
@@ -91,9 +92,7 @@ class Incident extends Component {
   }
 
   handleChange(string) {
-
   }
-
 
   getAllGreetings() {
     HelloService.getGreeting()
@@ -136,13 +135,16 @@ class Incident extends Component {
         <Grid container spacing={16} className={classes.mainContent}>
           <Grid item xs={12} sm={12} spacing={16} margin="normal">
             <Paper margin="normal" className={classes.incidentHeader}>
-            <Alert 
-              incidentType="Potential Overdose"
-              datetime="11:38PM April 7th 2018"
-              address="123 Fake Street"
-              patientNote="N/A"
-              incidentStatus="In Progress"
-              />
+              <Alert 
+                incidentType="Potential Overdose"
+                datetime="11:38PM April 7th 2018"
+                address="123 Fake Street"
+                patientNote="N/A"
+                incidentStatus="In Progress"
+                />
+                <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.resolveIncident.bind(this)}>
+                  Resolve
+                </Button>
             </Paper>
           </Grid>
           <Grid item xs={12}>
@@ -176,11 +178,6 @@ class Incident extends Component {
                   tableData={incidentHistory}
                 />
                 </Paper>
-              </Grid>
-              <Grid item sm={12} margin="normal">
-                <Button variant="raised" color="primary" className={classes.incidentButton} onClick={this.resolveIncident.bind(this)}>
-                  Resolve
-                </Button>
               </Grid>
             </Grid>
           </Grid>

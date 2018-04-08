@@ -155,39 +155,14 @@ class Patient extends Component {
                         <Grid item xs={12}>
                           {incidents.map(n => {
                             return (
-                              /*<Grid item xs={12}>
-                                <Grid item xs={12}>
-                                  <Typography className={classes.heading}>Incident</Typography>
-                                  <FormControl className={classes.incidentType}>
-                                    <InputLabel>Incident Type</InputLabel>
-                                    <Input id="incident-type" value={n.type} disabled/>
-                                  </FormControl>
-                                  <FormControl className={classes.incidentDateTime}>
-                                    <InputLabel>Incident Date/Time</InputLabel>
-                                    <Input id="incident-time" value={n.datetime} disabled/>
-                                  </FormControl>
-                                  <FormControl className={classes.incidentLocation}>
-                                    <InputLabel>Incident Location</InputLabel>
-                                    <Input id="incident-Location" value={n.address} disabled/>
-                                  </FormControl>
-                                  <Button variant="raised" className={classes.button} color="secondary" onClick={() => this.nextPath('/incident/' + 3) }>
-                                    View Incident
-                                  </Button>
-                                </Grid>
-                                <Grid item xs={12}>
-                                  <FormControl fullWidth className={classes.incidentNote}>
-                                    <InputLabel>Patient Note</InputLabel>
-                                    <Input id="incident-note" value={n.patientNote} disabled/>
-                                  </FormControl>
-                                </Grid>
-                              </Grid>*/<Alert 
-                                        incidentType={n.type} 
-                                        datetime={n.datetime}
-                                        address={n.address}
-                                        patientNote={n.patientNote}
-                                        incidentStatus={n.incidentStatus}
-                                        nextPath={this.nextPath.bind(this)}
-                                       />
+                             <Alert 
+                                incidentType={n.type} 
+                                datetime={n.datetime}
+                                address={n.address}
+                                patientNote={n.patientNote}
+                                incidentStatus={n.incidentStatus}
+                                nextPath={this.nextPath.bind(this)}
+                                />
                             );
                           })}
                         </Grid>
