@@ -44,6 +44,7 @@ const styles = theme => ({
     width: '20%',
     marginLeft: 'auto',
     marginRight: 'auto',
+    float: 'right'
   },
   leftPane: {
     height: 140,
