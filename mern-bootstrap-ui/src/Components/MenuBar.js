@@ -73,6 +73,7 @@ class MenuBar extends Component {
                 <MenuItem onClick={this.handleClose}>Logout</MenuItem>
               </Menu>
               <Typography variant="title" color="inherit" className={classes.flex}>
+              <img src='/images/pill-logo.png' width='48px' height='48px'/>
                 Sedneverson
               </Typography>
               {/* Messages */}
@@ -89,8 +90,8 @@ class MenuBar extends Component {
                 open={Boolean(anchorElMessageList)}
                 onClose={this.handleCloseMessagesList}
               >
-                <MenuItem onClick={this.handleCloseMessagesList}><img src="yes.jpg" />Jesse - <br /> how are you?</MenuItem>
-                <MenuItem onClick={this.handleCloseMessagesList}><img src="yes.jpg" />Dr. Martin -  <br />You need to see us</MenuItem>
+                <MenuItem onClick={this.handleCloseMessagesList}><img src="/images/social-worker-icon.png"  width='36px' height='36px' /><b>Jesse</b>  -  how are you?</MenuItem>
+                <MenuItem onClick={this.handleCloseMessagesList}><img src="/images/dr-icon.png"  width='36px' height='36px' /><b>Dr. Martin</b>  -  You need to see us</MenuItem>
               </Menu>
               {/* <Button color="inherit">Login</Button> */}
             </Toolbar>

@@ -5,6 +5,7 @@ import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import PatientListService from '../Services/PatientListService';
 
 const styles = theme => ({
   root: theme.mixins.gutters({
@@ -49,24 +50,7 @@ const styles = theme => ({
   }
 });
 
-let id = 0;
-function createPatient(name, address, age, incidentCount) {
-  id += 1;
-  return { id, name, address, age, incidentCount };
-}
-
-const data = [
-  createPatient('Mike Robinson', "123 Fake Street. O'fallon, MO USA", 30, 2),
-  createPatient('Brandon Hunter', "123 Fake Street. O'fallon, MO USA", 30, 1),
-  createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Bobby Bill', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Kristen Robinson', "123 Fake Street. O'fallon, MO USA", 30, 3),
-  createPatient('Brandon Hunter', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Jesse Ginnever', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Billy Bob', "123 Fake Street. O'fallon, MO USA", 30, 0),
-  createPatient('Bobby Bill', "123 Fake Street. O'fallon, MO USA", 30, 0),
-];
+const data = PatientListService.getAllPatients();
 
 
 class PatientList extends Component {
