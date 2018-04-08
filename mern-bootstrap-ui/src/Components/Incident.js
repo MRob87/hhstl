@@ -103,6 +103,7 @@ class Incident extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props.match.params.id);
     this.setState({
       messages: MessageService.getMessagesByPatientId()
     });
@@ -175,7 +176,8 @@ class Incident extends Component {
             <Grid container className={classes.demo} justify="center" spacing={Number(spacing)}>
               <Grid item sm={3} margin="normal">
                   <ContactCard 
-                     nextPath={this.nextPath.bind(this)} 
+                    patientId={this.props.match.params.id}
+                    nextPath={this.nextPath.bind(this)} 
                   />
               </Grid>
               <Grid item sm={5} margin="normal">

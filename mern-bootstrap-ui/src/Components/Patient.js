@@ -162,7 +162,8 @@ class Patient extends Component {
                 </Grid>
                 <Grid item sm={3}>
                     <ContactCard 
-                       nextPath={this.nextPath.bind(this)} 
+                      patientId={this.props.match.params.id}
+                      nextPath={this.nextPath.bind(this)} 
                     />
                 </Grid>
                 <Grid item sm={9}>
